@@ -15,7 +15,6 @@ class SmurfsList extends Component {
     }
     onClick = (id) => {
         this.props.deleteSmurf(id);
-        // console.log(id);
     }
     render() {
         return(

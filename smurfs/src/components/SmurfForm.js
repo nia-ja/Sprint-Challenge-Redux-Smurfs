@@ -37,6 +37,7 @@ class SmurfForm extends Component {
                 value={this.state.name}
                 name="name"
                 type="text"
+                required
               />
               <input
                 onChange={this.handleInputChange}
@@ -44,6 +45,7 @@ class SmurfForm extends Component {
                 value={this.state.age}
                 name="age"
                 type="number"
+                required
               />
               <input
                 onChange={this.handleInputChange}
@@ -51,9 +53,10 @@ class SmurfForm extends Component {
                 value={this.state.height}
                 name="height"
                 type="number"
+                required
               />
-              <div className='message'>{this.state.responseMessage}</div>
-              <button className="btn" type="submit">Add Smurf</button>
+              {(this.state.name || this.state.age || this.state.height !== '') ?
+              <button className="btn" type="submit">Add Smurf</button> : <button className="not-active" type="submit">Add Smurf</button>}
             </form>
           </div>
         );
