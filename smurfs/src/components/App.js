@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import SmurfsList from './SmurfsList';
+import SmurfForm from './SmurfForm';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>Smurfs list</h1>
+        <SmurfForm />
         <SmurfsList />
       </div>
     );

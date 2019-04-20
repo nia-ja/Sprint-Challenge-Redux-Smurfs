@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-// import { Smurf } from "../components";
-import { getSmurfs } from "../actions";
+import Smurf from "./Smurf";
+import { getSmurfs, deleteSmurf } from "../actions";
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -13,11 +13,17 @@ class SmurfsList extends Component {
     componentDidMount() {
         this.props.getSmurfs();
     }
-  render() {
-    return (
-      <h1>Smurf</h1>
-    );
-  }
+    onClick = (id) => {
+        this.props.deleteSmurf(id);
+        // console.log(id);
+    }
+    render() {
+        return(
+            <div className="smurfs-list">
+               {!this.props.fetchingSmurfs && this.props.smurfs.map(smurf => <Smurf key={smurf.id} smurf={smurf} onClick={this.onClick} />)}
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = state => ({
@@ -28,5 +34,5 @@ const mapStateToProps = state => ({
   
 export default connect(
     mapStateToProps,
-    { getSmurfs}
+    { getSmurfs, deleteSmurf}
 )(SmurfsList);
