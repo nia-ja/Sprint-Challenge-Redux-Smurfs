@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { addSmurf } from "../actions";
 
+import HideFormIcon from '../img/hide-icon.png';
+
 class SmurfForm extends Component {
     constructor(props) {
         super(props);
@@ -21,12 +23,14 @@ class SmurfForm extends Component {
           age: this.state.age,
           height: this.state.height
         }
-        this.props.addSmurf(newSmurf);    this.setState({
+        this.props.addSmurf(newSmurf);    
+        this.setState({
           name: '',
           age: '',
           height: ''
         });
-      }
+        this.props.hideForm();
+    }
     render() {
         return (
           <div className="SmurfForm">
@@ -56,7 +60,8 @@ class SmurfForm extends Component {
                 required
               />
               {(this.state.name || this.state.age || this.state.height !== '') ?
-              <button className="btn" type="submit">Add Smurf</button> : <button className="not-active" type="submit">Add Smurf</button>}
+              <button className="btn" type="submit" >Add Smurf</button> : <button className="btn not-active" type="submit">Add Smurf</button>}
+              <img src={HideFormIcon} onClick={this.props.hideForm} alt="arrow pointing to the right"/>
             </form>
           </div>
         );

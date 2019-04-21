@@ -38,7 +38,6 @@ export const ADD_SMURF_START = 'ADD_SMURF_START';
   export const DELETE_SMURF_SUCCESS = 'DELETE_SMURF_SUCCESS';
   export const DELETE_SMURF_FAILURE = 'DELETE_SMURF_FAILURE';
 
-
   export const deleteSmurf = id => dispatch => {
     dispatch({ type: DELETE_SMURF_START });
     axios
@@ -53,18 +52,22 @@ export const ADD_SMURF_START = 'ADD_SMURF_START';
         dispatch({ type: DELETE_SMURF_FAILURE, payload: err.response });
       });
   };
-/* 
-  Action Types Go Here!
-  Be sure to export each action type so you can pull it into your reducer
-*/
 
-/*
-  For this project you'll need at least 2 action creators for the main portion,
-   and 2 more for the stretch problem.
-   Be sure to include action types for each type of action creator. Also, be sure to mind
-     the "pending" states like, fetching, creating, updating and deleting.
-   C - addSmurf
-   R - getSmurfs
-   U - updateSmurf
-   D - deleteSmurf
-*/
+  export const EDIT_SMURF_START = 'EDIT_SMURF_START';
+  export const EDIT_SMURF_SUCCESS = 'EDIT_SMURF_SUCCESS';
+  export const EDIT_SMURF_FAILURE = 'EDIT_SMURF_FAILURE';
+
+  export const editSmurf = (id, updatedSmurf) => dispatch => {
+    dispatch({ type: EDIT_SMURF_START });
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, updatedSmurf)
+      .then(res => {
+        dispatch({
+          type: EDIT_SMURF_SUCCESS,
+          payload: res.data
+        });
+      })
+      .catch(err => {
+        dispatch({ type: EDIT_SMURF_FAILURE, payload: err.response });
+      });
+  };

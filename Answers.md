@@ -7,8 +7,8 @@ While extending the properties of another object, we're using Object.assign() me
 2. Describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
 
 action - a regular JavaScript object that usually has two properties, type and payload (only type is required)
-reducer - the only place where we can change the state
-store - is our Application level state.
+reducer - the only place where we can change the state, it receives an action, creates a new state tree and passes that to the store.
+store - is our Application level state. Thee store is known as a single source of truth, because the state of the app is stored in a single state object
 
 
 3. What is the difference between Application state and Component state? When would be a good time to use one over the other?

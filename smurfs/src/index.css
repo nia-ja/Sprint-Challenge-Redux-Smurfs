@@ -62,20 +62,29 @@ body {
 }
 header {
   width: 100%;
-  padding: 20px 0;
+  padding: 20px 2%;
   background: #0000ff;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
 header h1 {
   width: 35%;
-  color: #e3d900;
   font-size: 50px;
   padding-bottom: 0;
   vertical-align: center;
   text-transform: uppercase;
   font-family: 'Lemon', cursive;
+  text-shadow: 2px 2px rgba(165, 165, 165, .8);
+}
+header h1 a {
+  color: #e3d900;
+  text-decoration: none;
+  width: 100%;
+}
+header .show-add-form {
+  width: 50px;
+  margin-left: 56%;
 }
 header .SmurfForm {
   width: 60%;
@@ -83,21 +92,23 @@ header .SmurfForm {
 .SmurfForm form {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   width: 100%;
   font-size: 16px;
 }
-.SmurfForm form input {
+input {
   margin-right: 2%;
   padding: 10px 7px;
   border: none;
   border-radius: 3px;
+  color: rgb(56, 56, 56);
 }
-.SmurfForm form input:focus {
+input:focus {
   outline: none;
   background: rgb(255, 171, 171);
   color: white;
 }
-.SmurfForm form button {
+.btn {
   background: #ff0000;
   color: white;
   padding: 10px 15px;
@@ -105,23 +116,27 @@ header .SmurfForm {
   border-radius: 3px;
   text-transform: uppercase;
   font-weight: bold;
+  margin-right: 1%;
 }
-.SmurfForm form button:hover {
+.btn:hover {
   background: white;
   color: #ff0000;
   cursor: pointer;
 }
-.SmurfForm form button:focus {
+.btn:focus {
   outline: none;
 }
 
-.SmurfForm form .not-active {
+.SmurfForm form .btn.not-active {
   background: #d9ecff;
 }
-.SmurfForm form .not-active:hover {
+.SmurfForm form .btn.not-active:hover {
   background: #d9ecff;
   color: white;
   cursor: auto;
+}
+.SmurfForm form img {
+  width: 50px;
 }
 .smurfs-list {
   width: 60%;
@@ -163,6 +178,12 @@ header .SmurfForm {
   color: #ff0000;
   text-shadow: none;
 }
+.smurf-controls button:focus {
+  outline: none;
+  background: rgba(217, 236, 255, .5);
+  border-radius: 3px;
+
+}
 .smurf-controls button:first-child {
   margin-right: 4%;
 }
@@ -184,4 +205,22 @@ th {
 td {
   padding-left: 20px;
 }
+
+.edit-smurf form {
+  width: 50%;
+  margin: 40px auto 0 auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  background: #e3d900;
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+
+}
+.edit-smurf form input {
+  margin-bottom: 20px;
+  width: 90%;
+}
+
 
